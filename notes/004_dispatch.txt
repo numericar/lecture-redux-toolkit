@@ -1,0 +1,34 @@
+Dispatch 
+    ทำหน้าที่ส่งคำสั่ง action ไปให้กับ store
+
+    ตัวอย่างการใช้งาน
+        import React, { useState } from "react";
+
+        import { useSelector, useDispatch } from "react-redux";
+        import { increment, decrement, setCount } from "../actions/counterActions";
+
+        export default function Counter() {
+            const count useSelector((state) => state.count);
+            const dispatch = useDispatch();
+
+            const [newCount, setNewCount] = useState(0);
+
+            return (
+                <div>
+                    <h2>Counter: {count}</h2>
+                    <button onClick={() => dispatch(increment())}>Increment</button>
+                    <button onClick={() => dispatch(decrement())}>Decrement</button>
+                    <div>
+                        <input
+                            type="number"
+                            value={newCount}
+                            onChange={(e) => setNewCount(Number(e.target.value))}
+                        />
+                        <button onClick={() => dispatch(setCount(newCount))}>Set count</button>
+                    </div>
+                </div>
+            )
+        }
+
+    ** useSelector
+        ใช้สำหรับเข้าถึง state ที่จัดเก็บอยู่ใน store ของ redux

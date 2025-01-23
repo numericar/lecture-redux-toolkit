@@ -1,0 +1,48 @@
+Store 
+    เป็นส่วนที่เก็บ state ของ application โดยเก็บในรูปแบบ javascript object
+    โดยใน redux จะมีเพียง 1 store 
+    
+    โดย store จะถูกส่งต่อให้กับ reducer เพื่อให้ reducer สามารถจัดการร่วมกับ action ได้ 
+
+Reducer
+    เป็น pure function ที่นำ state ปัจจุบันของ application และข้อมูลที่ส่งผ่าน action  (payload) 
+    นำมาสร้างเป็น state ใหม่ โดยมันจะทำหน้าที่จัดการ state ตาม action ที่ถูกส่งมาให้กับ reducer
+
+ตัวอย่าง
+    file: reducers/counterReducer
+    import { INCREMENT, DECREMENT, SET_COUNT } = from "../actions/counterActions.js";
+
+    const initialState = {
+        count: 0
+    };
+
+    const counterReducer = (state = initialState, action) => {
+        swicth (action.type) {
+            case INCREMENT:
+                return {
+                    ...state,
+                    count: state.count + 1
+                };
+            case DECREMENT:
+                return {
+                    ...state,
+                    count: state.count - 1
+                };
+            case SET_COUNT:
+                return {
+                    ...state,
+                    count: action.payload
+                };
+            default:
+                return state;
+        }
+    }
+
+    export default counterReducer;
+
+    โดยเมื่อ reducer ถูกสร้างขึ้นมาแล้ว เราจะต้องนำ reducer นั้นไปสร้างร่วมกับ store 
+    ตัวอย่าง 
+        import { createStore } from "redux";
+        import counterReducer from "./reducers/counterReducer";
+
+        const store = createStore(counterReducer);

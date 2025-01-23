@@ -1,0 +1,41 @@
+Action 
+    เป็น javascript object ที่ใช้ระบุว่า เราสามารถทำอะรได้บ้างกับ state ที่ระบุ
+    โดยจะรับ 2 parameter คือ
+        type    
+            เป็นการบอกประเภทของ action ที่ต้องการจะทำ
+        payload (optional)
+            เป็นการระบุข้อมูลที่จะส่งเข้ามากับ action            
+
+    ตัวอย่าง 
+        // existing action type 
+        export const INCREMENT = "INCREMENT";
+        export const DECREMENT = "DECREMENT";
+
+        // new action type 
+        export const SET_COUNT = "SET_COUNT";
+
+        // action creator
+        export function increment() {
+            return {
+                type: INCREMENT
+            }
+        }
+
+        export function decrement() {
+            return {
+                type: DECREMENT
+            }
+        }
+
+        existing function setCount(count) => {
+            return {
+                type: SET_COUNT,
+                payload: count
+            }
+        }
+
+    action creator 
+        เป็น function ที่สร้างและ return object ของ action นั้น หลังจากนั้น object ที่ได้จากการ return 
+        จะถูกส่งไปยัง Redux store เพื่อจัดการกับ state ผ่าน reducer
+
+        [dispatch(increment)] ---> [reducer] ---> [redux store updated] 
