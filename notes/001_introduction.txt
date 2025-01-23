@@ -1,2 +1,31 @@
-What is Redux?
-    https://mikelopster.dev/posts/react-redux
+What is Redux ?
+    เป็น open source javascript library ที่ใช้จัดการกับ state ภายใน application
+    โดยเป็นการนำ state มาจัดการที่ศูนย์กลางแทนที่จะเก็บไว้ที่แต่ละหน้าของ application (Sigle page web)
+
+    โดยแนวคิดใหญ่ ๆ ของ redux จะจัดการ state ภายใน application ที่ศูนย์กลาง และทุก component
+    สามารถติดตาม state ได้จากที่นั่นพร้อมกัน
+    โดยมี core priciples ดังนี้
+
+        Single source of truth
+            application อะไรก็ตามที่ใช้ redux จะเปลี่ยนมาจัดการ state โดยใช้ javascript object 
+            ที่เรียกว่า store เพือให้ทั้ง application มีศูนย์กลางของ state เพียงที่เดียว
+
+        State ที่ถูกสร้างมาเพื่อ read-only
+            ใน redux จะไม่สามารถแก้ไข state ได้โดยตรง จะต้องมาการทำผ่านการส่ง action (dispatch)
+            เพื่อเป็นการสื่อสารไปยัง store ว่าจะขอแก้ไข state และจัดการผ่าน Reducer ที่คอยทำหน้าที่จัดการ 
+            action ที่ส่งเข้ามา
+
+        ให้การเปลี่ยนแปลงเป็น pure function
+            Reducer ถูก design ให้มาเป็น pure function ที่จะทำการนำ state ปัจจุบันและ action 
+            มาแก้ไข state ใหม่
+
+    โดยการใช้ redux จะเป็นการกำหนด
+        action
+            เพื่ออธิบายว่า ระบบนั้นสามารถทำอะไรได้บ้าง (action คือสิ่งที่สามารถแก้ไข store ได้)
+        reducer 
+            เพื่ออธิบายว่า เมื่อเกิด action ดังกล่าวขึ้น จะต้องจัดการอย่างไรกับ state 
+        store
+            ใช้เพื่อเก็บ state ของ application
+        
+                                            
+                                            
