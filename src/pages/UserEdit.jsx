@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { fetchUser, editUser, createUser } from "../actions/userAction";
 
 // https://youtu.be/P54huimnQNY?si=GyUjYlBzeiWFGdW5&t=2941
 
@@ -35,10 +36,12 @@ function UserEdit() {
     const handleSave = async () => {
         const result = userData.id ? await dispatch(editUser(userData)) : await dispatch(createUser(userData));
 
-        if (result.sucecss) {
+        console.log(result);
+
+        if (result.success) {
             setMessage("User saved successfully");
             setIsError(false);
-            history.push("/");
+            // history.push("/");
         } else {
             setMessage(result.message || "An error occurred");
             setIsError(true);
@@ -54,7 +57,7 @@ function UserEdit() {
             <input
                 type="text"
                 name="name"
-                value={userData.email}
+                value={userData.name}
                 onChange={handleChange}
                 placeholder="Name"
                 className="mb-2 w-full rounded border p-2"
@@ -70,7 +73,7 @@ function UserEdit() {
             <input
                 type="text"
                 name="phoneNumber"
-                value={userData.email}
+                value={userData.phoneNumber}
                 onChange={handleChange}
                 placeholder="phoneNumber"
                 className="mb-2 w-full rounded border p-2"
