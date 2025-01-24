@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchUsers } from "../actions/userAction";
+// import { fetchUsers } from "../actions/userAction";
+import { fetchUsers } from "../reducers/memberSlice"; // ย้ายจากการเรียก action จาก redux, มาเรียกผ่าน slice ของ toolkit
 
 function UserList() {
     const dispatch = useDispatch();

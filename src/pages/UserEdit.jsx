@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchUser, editUser, createUser } from "../actions/userAction";
-
-// https://youtu.be/P54huimnQNY?si=GyUjYlBzeiWFGdW5&t=2941
+// import { fetchUser, editUser, createUser } from "../actions/userAction";
+import { fetchUser, editUser, createUser } from "../reducers/memberSlice";
 
 function UserEdit() {
     const dispatch = useDispatch();

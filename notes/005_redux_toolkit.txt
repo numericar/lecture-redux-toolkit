@@ -1,0 +1,9 @@
+Redux Toolkit
+    เป็นชุดเครื่องมือจากทีม redux เพื่อให้สามารถทำงานกับ redux ได้ง่ายขึ้น
+    โดยจะเป็นการรวม library หลายส่วนเข้ามา 
+    เช่น 
+        createSlice
+            จะเป็นการรวม reducer, action, action_type เอาไว้ในที่เดียว
+        middleware
+            ไม่จำเป็นต้องใช้ redux thunk ในการจัดการกับ async function แล้ว โดย redux toolkit 
+            จะจัดการให้เอง
